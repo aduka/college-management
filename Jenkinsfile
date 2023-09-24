@@ -1,11 +1,18 @@
 pipeline {
     agent any
-
-    stages {
-        stage('Check PATH') {
+    tools {
+        gradle 8.3 
+    }
+    stages {        
+        stage('Build Image') {
             steps {
-                sh 'echo $PATH'
+                sh 'gradle init'
+                sh "echo 'building..'"
+               
+                withGradle {
+                   sh 'gradle wrapper build'
+                }
+                
             }
         }
-    }
 }
