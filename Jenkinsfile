@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {
         // Define the Gradle tool name (e.g., "Default Gradle")
-        gradle 'Default Gradle'
+        gradle
     }
     stages {
         stage('Test') {
